@@ -1,6 +1,7 @@
 require "zip"
 require "csv"
 require "fileutils"
+require "httparty"
 
 module BrDb
   class LoadZipCodesJob < ApplicationJob

@@ -1,3 +1,6 @@
+require "json"
+require "httparty"
+
 module BrDb
   class LoadCountriesJob < ApplicationJob
     queue_as :default

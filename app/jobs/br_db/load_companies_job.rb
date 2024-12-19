@@ -1,4 +1,5 @@
 require "zip"
+require "httparty"
 require "down"
 require "csv"
 require "fileutils"

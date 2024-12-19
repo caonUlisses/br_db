@@ -1,3 +1,6 @@
+require "httparty"
+require "json"
+
 module BrDb
   class LoadCitiesJob < ApplicationJob
     queue_as :default
