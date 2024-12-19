@@ -1,7 +1,9 @@
 PATH
   remote: .
   specs:
-    br_db (0.1.0)
+    br_db (0.1.6)
+      down (~> 5.0)
+      httparty
       rails (>= 8.0.1)
 
 GEM

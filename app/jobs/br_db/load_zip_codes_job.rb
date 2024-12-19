@@ -74,15 +74,15 @@ module BrDb
       city_mapping = get_data_map("log_localidade.txt", 2, 8)
       neighborhood_mapping = get_data_map("log_bairro.txt", 3, 3)
 
+      zip_codes = []
       # iterate over the csv files that match the regex pattern
       Dir.glob(path.join("**", "*.txt")).each do |file_path|
-        zip_codes = []
         next unless csv_file_path_regex.match?(file_path)
         CSV.foreach(file_path, liberal_parsing: true, col_sep: DELIMITER, headers: false, encoding: ENCODING, quote_char: QUOTE_CHARS.shift) do |row|
           street_name = row[8] + " " + row[5]
           zip_codes << {
             state_code: row[1],
-            neighborhood_name: neighborhood_mapping[row[3]],
+            neighborhood_name: neighborhood_mapping[row[3]][0],
             street_name: street_name,
             city_name: city_mapping[row[2]][0],
             city_code: city_mapping[row[2]][1],
@@ -90,8 +90,12 @@ module BrDb
             zip_code: row[7]
           }
         end
-        ZipCode.insert_all(zip_codes)
+        if zip_codes.count % 1_000 == 0
+          ZipCode.insert_all(zip_codes)
+          zip_codes = []
+        end
       end
+      ZipCode.insert_all(zip_codes)
     end
 
     def import_city_zip_codes
