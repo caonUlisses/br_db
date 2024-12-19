@@ -1,8 +1,9 @@
 # BrDb
-Short description and motivation.
+Downloads and loads Brazilian data into your Ruby on Rails app
 
 ## Usage
-How to use my plugin.
+
+We'll have usage instructions in the future
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -22,7 +23,8 @@ $ gem install br_db
 ```
 
 ## Contributing
-Contribution directions go here.
+
+Fork the repo, open a PR.
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
