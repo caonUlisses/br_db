@@ -1,6 +1,6 @@
 class CreateBrdbCompanies < ActiveRecord::Migration[8.0]
   def change
-    create_table :brdb_companies do |t|
+    create_table :br_db_companies do |t|
       t.string :cnpj
       t.string :name
       t.string :legal_name

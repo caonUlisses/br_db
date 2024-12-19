@@ -1,6 +1,6 @@
 class CreateBrdbZipCodes < ActiveRecord::Migration[8.0]
   def change
-    create_table :brdb_zip_codes do |t|
+    create_table :br_db_zip_codes do |t|
       t.string :zip_code
       t.string :street_name
       t.string :street_additional_info
